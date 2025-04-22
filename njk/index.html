@@ -190,13 +190,77 @@
       <div class="parallax-float-wrapper" id="section-adaboost-1">
         <div class="parallax-float-box">
           <div class="float-text">
-            <div class="sample-box"></div>
+            <div class="ada-steps body-text">
+              <span id="ada-step-0">Train Classifier</span>
+              <span>-></span>
+              <span id="ada-step-1">Test Classifier</span>
+              <span>-></span>
+              <span id="ada-step-2">Get Importance</span>
+              <span>-></span>
+              <span id="ada-step-3">Update Distribution</span>
+              <span>-></span>
+              <span id="ada-step-4">Add to Forest</span>
+            </div>
+            <div class="ada-main">
+              <div class="ada-samples-viewer">
+                <div class="ada-samples-box">
+                  {%for i in [0,1,2,3,4,5] %}
+                  <div class="ada-sample" id="ada-sample-{{i}}">
+                    <canvas id="ada-sample-{{i}}-canvas"></canvas>
+                    <div class="ada-sample-text">
+                      <p class="body-text" id="ada-sample-{{i}}-id">Sample XXXX</p>
+                      <p class="body-text" id="ada-sample-{{i}}-correct">?????</p>
+                      <p class="body-text" id="ada-sample-{{i}}-weight">W: 0.1234</p>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
 
-            <div class="sample-box"></div>
+                <div class="ada-samples-footer">
+                  <button id="ada-sample-pagedwn-btn">
+                    <p class="body-text">&lt;-</p>
+                  </button>
+                  <p class="body-text" id="ada-sample-page">Page </p>
+                  <button id="ada-sample-pageup-btn">
+                    <p class="body-text">-></p>
+                  </button>
+                </div>
+              </div>
+              <div class="ada-main-right">
+                <canvas id="ada-current-classifier"></canvas>
+                <div id="ada-current-stats">
+                  <p class="body-text" id="ada-stats-classifier-num"> Classifier #0</p>
+                  <p class="body-text" id="ada-stats-training"> Training: Not Started</p>
+                  <p class="body-text" id="ada-stats-testing"> Testing: Not Started</p>
+                  <p class="body-text" id="ada-stats-correct"> Correct: ?</p>
+                  <p class="body-text" id="ada-stats-incorrect"> Incorrect: ?</p>
+                  <p class="body-text" id="ada-stats-accuracy"> Accuracy: ?</p>
+                  <p class="body-text" id="ada-stats-importance"> Importance: ?</p>
 
-            <div class="sample-box"></div>
+                </div>
+              </div>
 
-            <div class="sample-box"></div>
+            </div>
+            <div class="ada-footer">
+              <div>
+                <button id="ada-reset-btn">
+                  <p class="body-text">Reset</p>
+                </button>
+                <button id="ada-continue-btn">
+                  <p class="body-text">Next Step</p>
+                </button>
+              </div>
+              <a href="#section-adaboost-2">
+                <p class="body-text">See Forest -></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax-float-wrapper" id="section-adaboost-2">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <p>Hi!</p>
           </div>
         </div>
       </div>

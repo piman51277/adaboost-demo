@@ -3,9 +3,11 @@
     background-color: var(--Light);
     width: 1400px;
     height: 600px;
+    padding: 15px;
 
     display: flex;
-    gap: 4px;
+    gap: 10px;
+    flex-direction: column;
   }
 }
 
@@ -13,4 +15,175 @@
   width: 150px;
   height: 150px;
   background-color: var(--Black);
+}
+
+.ada-steps {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--Semi-Dark);
+
+  .current-step {
+    color: var(--Dark);
+  }
+
+  span {
+    height: 36px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+.ada-main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.ada-samples-viewer {
+  width: 600px;
+  height: 100%;
+  max-height: 100%;
+  border: 2px solid var(--Semi-Dark);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+  overflow: hidden;
+
+  .ada-samples-box {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    row-gap: 10px;
+    column-gap: 10px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+
+    .ada-sample {
+      width: 280px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-grow: 1;
+      display: inline-grid;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+
+      border: 2px solid var(--Semi-Dark);
+
+      canvas {
+        width: 100px;
+        height: 100px;
+        background-color: var(--Black);
+      }
+
+      .ada-sample-text {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .sample-cor {
+          color: var(--Green);
+        }
+
+        .sample-icor {
+          color: var(--Red);
+        }
+      }
+    }
+  }
+
+  .ada-samples-footer {
+    height: 50px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+      width: 50px;
+    }
+
+    #ada-sample-pagedwn-btn {
+      border-radius: 0px 10px 0px 0px;
+    }
+    #ada-sample-pageup-btn {
+      border-radius: 10px 0px 0px 0px;
+    }
+  }
+}
+
+.ada-main-right {
+  flex-grow: 1;
+  border: 2px solid var(--Semi-Dark);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  canvas {
+    width: 400px;
+    height: 400px;
+    background-color: var(--Black);
+  }
+
+  #ada-current-stats {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.ada-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  a,
+  button {
+    position: inherit;
+    padding: 10px;
+    background-color: var(--Semi-Dark, #576475);
+    color: var(--light, #f2f1f0);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  button:hover {
+    background-color: var(--Dark);
+  }
+
+  #ada-reset-btn:hover {
+    background-color: var(--Red);
+  }
+}
+
+#section-adaboost-2 {
+  .float-text {
+    background-color: var(--Light);
+    width: 1400px;
+    height: 600px;
+    padding: 15px;
+
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
 }

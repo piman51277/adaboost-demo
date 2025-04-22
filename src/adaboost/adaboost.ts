@@ -68,7 +68,7 @@ export class AdaBoost {
     }
 
     /**
-     * Test the current classifier (incrementa)
+     * Test the current classifier (incremental)
      * @returns {*}  {boolean} Whether the classifier has been fully tested
      */
     public testClassifier(): boolean {
@@ -76,7 +76,7 @@ export class AdaBoost {
             throw new Error("No classifier to test");
         }
 
-        const batchSize = 20;
+        const batchSize = 50;
         const start = this.trainingProgress;
 
         if (this.trainingProgress >= this.trainingProgressMax) {
@@ -116,7 +116,7 @@ export class AdaBoost {
         const alpha = 0.5 * Math.log((1 - error) / (error + 1e-10));
         this.currentClassifierWeight = alpha;
 
-        return error;
+        return alpha;
     }
 
     /**
