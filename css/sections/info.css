@@ -1,0 +1,80 @@
+parallax-background {
+  background-color: var(--Black);
+}
+
+.float-text {
+  background-color: var(--Light);
+  color: var(--Semi-Dark);
+  position: relative;
+
+  h2 {
+    text-align: center;
+    span {
+      color: var(--Dark);
+    }
+  }
+
+  a {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+  }
+
+  button {
+    padding: 5px;
+  }
+
+  a,
+  button {
+    background-color: var(--Semi-Dark, #576475);
+    color: var(--light, #f2f1f0);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  button:hover {
+    background-color: var(--Dark);
+  }
+
+  span {
+    color: var(--Semi-Dark);
+  }
+
+  .set-0 {
+    color: var(--Red);
+  }
+
+  .set-1 {
+    color: var(--Blue);
+  }
+}
+.float-split {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  img,
+  canvas {
+    width: 300px;
+    height: 300px;
+  }
+
+  .split-left {
+    width: 300px;
+  }
+}
+
+#section-classifier-4 .split-left,
+#section-classifier-5 .split-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

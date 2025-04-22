@@ -20,7 +20,8 @@
     "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/explicit-module-boundary-types": "error",
     "jsdoc/require-jsdoc": "error",
-    "jsdoc/no-undefined-types": "off"
+    "jsdoc/no-undefined-types": "off",
+    "jsdoc/check-tag-names": ["warn", { "enableFixer": true, "typed": true }]
   },
   "ignorePatterns": ["node_modules/", "dist/", "*.config.js", "tools/"]
 }

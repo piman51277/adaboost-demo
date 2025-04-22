@@ -1,8 +1,59 @@
 :root {
-  --color-dark: #1e1e1e;
-  --color-back: #59729b;
-  --color-light: #d9dcd6;
-  --color-layer1: rgba(255, 255, 255, 0.05);
-  --color-layer2: rgba(255, 255, 255, 0.1);
-  --color-layer3: rgba(255, 255, 255, 0.15);
+  --Light: #f2f1f0;
+  --Semi-Dark: #576475;
+  --Dark: #283747;
+  --Black: #000000;
+  --Red: #f0052c;
+  --Blue: #0b88d5;
+  --Green: #3f8d3f;
+}
+
+.color-light {
+  color: var(--Light);
+}
+
+.color-semi-dark {
+  color: var(--Semi-Dark);
+}
+
+.color-dark {
+  color: var(--Dark);
+}
+
+/* Figma Theme Exports */
+
+.x-large-title {
+  /* X-Large Title */
+  font-family: Inter;
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 192px; /* 150% */
+}
+
+.large-title {
+  /* Large Title */
+  font-family: Inter;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 96px; /* 150% */
+}
+
+.title-text {
+  /* Title */
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px; /* 150% */
+}
+
+.body-text {
+  /* Body */
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px; /* 150% */
 }

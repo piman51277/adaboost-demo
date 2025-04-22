@@ -32,3 +32,37 @@ export class CanvasResizer {
     this.canvas.style.height = `${height}px`;
   }
 }
+
+export class CanvasResizerRelative {
+  relX: number;
+  relY: number;
+  canvas: HTMLCanvasElement;
+
+  constructor(relX: number, relY: number, id: string) {
+    this.relX = relX;
+    this.relY = relY;
+    this.canvas = document.getElementById(id) as HTMLCanvasElement;
+
+    this.resize();
+    window.addEventListener("resize", this.resize.bind(this));
+  }
+
+  /**
+   * Resize and scale the canvas relative to viewport
+   */
+  private resize(): void {
+    const { relX, relY, canvas } = this;
+
+    //get viewport width and height
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    //compute the new width and height
+    const width = Math.floor(viewportWidth * relX);
+    const height = Math.floor(viewportHeight * relY);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    canvas.width = width;
+    canvas.height = height;
+  }
+}
