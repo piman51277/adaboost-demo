@@ -1,0 +1,16 @@
+#section-adaboost-1 {
+  .float-text {
+    background-color: var(--Light);
+    width: 1400px;
+    height: 600px;
+
+    display: flex;
+    gap: 4px;
+  }
+}
+
+.sample-box {
+  width: 150px;
+  height: 150px;
+  background-color: var(--Black);
+}

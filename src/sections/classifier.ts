@@ -1,7 +1,7 @@
 import { Classifier } from "../adaboost/classifier";
 import { datasets } from "../dataset/fetchDigits";
 import { renderDigit } from "../dataset/renderDigit";
-import { CanvasResizer } from "../util/CanvasResizer";
+import { CanvasResizer, CanvasResizerRelative } from "../util/CanvasResizer";
 import { scrollPosition } from "../util/scrollPosition";
 import { byID } from "../util/shorthands";
 
@@ -192,21 +192,63 @@ function renderAutomated(): void {
     const compText = byID("partition-score-auto") as HTMLParagraphElement;
     compText.innerHTML = `Accuracy: ${accuracy}%`;
     const progressText = byID("partition-progress-auto") as HTMLParagraphElement;
-    progressText.innerHTML = `Progress: ${progress} / ${200}`;
+    progressText.innerHTML = `Progress: ${progress} / ${datasets.test.length}`;
 
 
-    if (progress >= 200) {
+    if (progress >= datasets.test.length) {
         progress = 0;
         accuracySum = 0;
         automatedClassifier = new Classifier();
     }
 }
 
+/**
+ * Renders the background
+ */
+function renderBackground(): void {
+
+    const canvas = byID("classifier-background") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const width = canvas.width;
+    const height = canvas.height;
+
+    //make the canvas background black
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, width, height);
+
+    const maxDim = Math.max(width, height);
+
+    //we will arrange the numbers in a 28x28 grid
+    //side length is a multiple of 56 such that 28*sideLength >= maxDim
+    const sideLength = Math.ceil(maxDim / (28 * 28)) * 28;
+    const xOffset = (width - sideLength * 28) / 2;
+    const yOffset = (height - sideLength * 28) / 2;
+    const gap = sideLength * 0.05;
+
+    //start iterating over the grid
+    for (let i = 0; i < 28; i++) {
+        for (let j = 0; j < 28; j++) {
+            //render partition of the classifier
+            const x = xOffset + j * sideLength;
+            const y = yOffset + i * sideLength;
+            const entry = classifier.partition[i * 28 + j];
+            if (entry === 0) {
+                ctx.fillStyle = "rgba(240,5,44,0.5)";
+            }
+            else {
+                ctx.fillStyle = "rgba(11,136,213,0.5)";
+            }
+            ctx.fillRect(x + gap, y + gap, sideLength - 2 * gap, sideLength - 2 * gap);
+        }
+    }
+
+}
 
 /**
  * Main function for this section
  */
 export default (): void => {
+    new CanvasResizerRelative(1.1, 1.1, "classifier-background");
     new CanvasResizer(300, 300, "partitioned-image");
     new CanvasResizer(300, 300, "fresh-image");
     new CanvasResizer(300, 300, "partitioned-image2");
@@ -216,10 +258,12 @@ export default (): void => {
         renderPartitioningWithScore();
         renderPartitioning();
         renderFresh();
+        renderBackground();
     });
     renderPartitioningWithScore();
     renderPartitioning();
     renderFresh();
+    renderBackground();
 
     //button binds
     const remakeSetsBtn = byID("new-partition-btn") as HTMLButtonElement;
@@ -227,6 +271,7 @@ export default (): void => {
         generateClassifierGroups();
         renderPartitioningWithScore();
         renderPartitioning();
+        renderBackground();
     });
 
 

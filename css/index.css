@@ -10,6 +10,8 @@
 /* Sections */
 @import "./sections/titlecard.css";
 @import "./sections/info.css";
+@import "./sections/adaboost.css";
+
 html {
   scroll-behavior: smooth;
 }
@@ -54,7 +56,7 @@ body {
 
 .parallax-float-box {
   position: sticky;
-  top: 80px;
+  top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
