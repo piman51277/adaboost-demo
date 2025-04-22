@@ -1,8 +1,6 @@
-import { datasets, fetchDigits } from "./dataset/fetchDigits";
-import { CanvasResizerRelative } from "./util/CanvasResizer";
+import { fetchDigits } from "./dataset/fetchDigits";
 import "./util/imgReady";
 import { ready } from "./util/ready";
-import { scrollPosition } from "./util/scrollPosition";
 
 import datasetMain from "./sections/dataset";
 import classifierMain from "./sections/classifier";

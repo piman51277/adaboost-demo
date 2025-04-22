@@ -1,11 +1,14 @@
 import { AdaBoost } from "../adaboost/adaboost";
+import { Classifier } from "../adaboost/classifier";
 import { datasets } from "../dataset/fetchDigits";
 import { renderDigit } from "../dataset/renderDigit";
 import { CanvasResizer, CanvasResizerRelative } from "../util/CanvasResizer";
 import { byID } from "../util/shorthands";
-import { Classifier } from '../adaboost/classifier';
 
 let boostInstance = new AdaBoost();
+
+let classifierBackgroundInstance = new Classifier();
+let backgroundOffset = 0;
 
 enum TrainingState {
     TRAIN_CLASSIFIER,
@@ -380,6 +383,11 @@ async function advanceState(): Promise<void> {
         currentState = TrainingState.TRAIN_CLASSIFIER;
         updateSampleView();
         updateForestDisplay();
+
+        //for funsies change the background
+        classifierBackgroundInstance = new Classifier();
+        renderBackground();
+        backgroundOffset = Math.floor(Math.random() * (datasets.test.length - 196));
     }
 
     updateStepView();
@@ -427,6 +435,7 @@ function renderBackground(): void {
     const sideLength = Math.ceil(maxDim / (14 * 56)) * 56;
     const xOffset = (width - sideLength * 14) / 2;
     const yOffset = (height - sideLength * 14) / 2;
+    const gap = sideLength * 0.05;
 
     //get a reference to the dataset
     const test_dataset = datasets.test;
@@ -436,12 +445,23 @@ function renderBackground(): void {
         for (let j = 0; j < 14; j++) {
             const idx = i * 14 + j;
 
-            const entry = test_dataset[idx + 200];
+            const entry = test_dataset[idx + backgroundOffset];
 
             const x = xOffset + j * sideLength;
             const y = yOffset + i * sideLength;
 
             renderDigit(entry, ctx, x, y, sideLength);
+
+            //render a square from the classifier
+            const partition = classifierBackgroundInstance.partition[idx];
+            if (partition === 0) {
+                ctx.fillStyle = "rgba(240,5,44,0.5)";
+            }
+            else {
+                ctx.fillStyle = "rgba(11,136,213,0.5)";
+            }
+
+            ctx.fillRect(x + gap, y + gap, sideLength - 2 * gap, sideLength - 2 * gap);
         }
     }
 }
