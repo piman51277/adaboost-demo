@@ -5,7 +5,7 @@
   "scripts": {
     "build-webpack": "webpack --config webpack.config.js",
     "build-css": "postcss css/*.css --dir dist",
-    "build-njk": "node tools/build.js && cp img/* dist/",
+    "build-njk": "node tools/build.js && cp assets/* dist/",
     "build": "concurrently npm:build-webpack npm:build-css npm:build-njk",
     "watch-webpack": "webpack --watch --config webpack.config.js",
     "watch-css": "postcss css/*.css --dir dist --watch",
