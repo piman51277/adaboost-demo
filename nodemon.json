@@ -1,0 +1,6 @@
+{
+  "watch": ["njk"],
+  "ext": "html,njk",
+  "exec": "npm run build-njk",
+  "delay": 1500
+}

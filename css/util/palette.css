@@ -1,0 +1,8 @@
+:root {
+  --color-dark: #1e1e1e;
+  --color-back: #59729b;
+  --color-light: #d9dcd6;
+  --color-layer1: rgba(255, 255, 255, 0.05);
+  --color-layer2: rgba(255, 255, 255, 0.1);
+  --color-layer3: rgba(255, 255, 255, 0.15);
+}

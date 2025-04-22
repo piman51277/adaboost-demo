@@ -1,0 +1,5 @@
+.title {
+  width: 100vw; /* This sets an ideal width */
+  max-width: 100%; /* This stops horizontal scroll */
+  height: 50px;
+}

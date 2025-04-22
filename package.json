@@ -1,0 +1,49 @@
+{
+  "name": "article-template",
+  "version": "1.0.0",
+  "description": "template for article-style projects",
+  "scripts": {
+    "build-webpack": "webpack --config webpack.config.js",
+    "build-css": "postcss css/*.css --dir dist",
+    "build-njk": "node tools/build.js && cp img/* dist/",
+    "build": "concurrently npm:build-webpack npm:build-css npm:build-njk",
+    "watch-webpack": "webpack --watch --config webpack.config.js",
+    "watch-css": "postcss css/*.css --dir dist --watch",
+    "watch-njk": "nodemon",
+    "watch": "concurrently npm:watch-webpack npm:watch-css npm:watch-njk",
+    "setup": "mkdir -p dist"
+  },
+  "author": "piman51277",
+  "private": true,
+  "dependencies": {
+    "html-minifier": "^4.0.0",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "@types/nunjucks": "^3.2.6",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "cssnano": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jsdoc": "^48.5.2",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "javascript-obfuscator": "^4.1.1",
+    "nodemon": "^3.1.4",
+    "postcss": "^8.4.39",
+    "postcss-calc": "^10.0.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.0.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-obfuscator": "^3.5.1"
+  },
+  "browerslist": [
+    "defaults and fully supports es6-module"
+  ]
+}
