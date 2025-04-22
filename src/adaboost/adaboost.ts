@@ -69,14 +69,14 @@ export class AdaBoost {
 
     /**
      * Test the current classifier (incremental)
+     * @param {number} batchSize - The number of samples to test in this iteration
      * @returns {*}  {boolean} Whether the classifier has been fully tested
      */
-    public testClassifier(): boolean {
+    public testClassifier(batchSize = 50): boolean {
         if (this.currentClassifier === null) {
             throw new Error("No classifier to test");
         }
 
-        const batchSize = 50;
         const start = this.trainingProgress;
 
         if (this.trainingProgress >= this.trainingProgressMax) {
@@ -180,6 +180,20 @@ export class AdaBoost {
             sum += entry.weight * (result === 1 ? -1 : 1);
         }
         return sum >= 0 ? 0 : 1;
+    }
+
+    /**
+     * Gets the raw result of the classification
+     * @param {DigitEntry} digit - The digit entry to classify
+     * @returns {*}  {number} The raw result of the classification
+     */
+    public getRawResult(digit: DigitEntry): number {
+        let sum = 0;
+        for (const entry of this.forest) {
+            const result = entry.classifier.evaluate(digit);
+            sum += entry.weight * (result === 1 ? -1 : 1);
+        }
+        return sum;
     }
 
     /**

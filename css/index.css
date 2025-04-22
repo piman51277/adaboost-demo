@@ -72,3 +72,10 @@ body {
     min-height: 200px;
   }
 }
+
+#section-end .float-text {
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -28,6 +28,8 @@
 
   .current-step {
     color: var(--Dark);
+    border: 2px solid var(--Semi-Dark);
+    border-radius: 5px;
   }
 
   span {
@@ -185,5 +187,131 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
+  }
+}
+
+.forest-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.forest-left {
+  border: 2px solid var(--Semi-Dark);
+  border-radius: 10px;
+  width: 900px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  gap: 10px;
+
+  h1 {
+    height: 50px;
+  }
+
+  .forest-container-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 10px;
+    row-gap: 10px;
+    max-height: 400px;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+.forest-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 275px;
+  gap: 10px;
+
+  border: 2px solid var(--Semi-Dark);
+  border-radius: 10px;
+
+  canvas {
+    width: 100px;
+    height: 100px;
+    background-color: var(--Black);
+  }
+}
+
+.forest-elem-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.forest-right {
+  flex-grow: 1;
+  border: 2px solid var(--Semi-Dark);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forest-single {
+  flex-grow: 1;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  canvas {
+    width: 250px;
+    height: 250px;
+    background-color: var(--Black);
+  }
+
+  button {
+    padding: 5px;
+  }
+}
+
+.forest-stats {
+  height: 150px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 2px solid var(--Semi-Dark);
+}
+
+.forest-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 10px;
+  a,
+  button {
+    position: inherit;
+    padding: 10px;
+    background-color: var(--Semi-Dark, #576475);
+    color: var(--light, #f2f1f0);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  button:hover {
+    background-color: var(--Dark);
   }
 }

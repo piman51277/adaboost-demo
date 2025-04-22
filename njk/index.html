@@ -147,7 +147,6 @@
               </div>
               <h2 class="title-text">The set with the <span>highest average pixel intensity</span> will determine the
                 output.
-                <br>(<span class="set-0">Red -> 0</span>, <span class="set-1">Blue -> 1</span>)
               </h2>
             </div>
             <a href="#section-classifier-5">
@@ -179,12 +178,12 @@
     </div>
   </div>
 
-
   <div class="parallax-box" id="section-adaboost">
     <div class="section ">
       <h1 class="large-title">AdaBoost</h1>
     </div>
     <div class="parallax-background">
+      <canvas id="adaboost-background"></canvas>
     </div>
     <div class="parallax-content">
       <div class="parallax-float-wrapper" id="section-adaboost-1">
@@ -249,6 +248,9 @@
                 <button id="ada-continue-btn">
                   <p class="body-text">Next Step</p>
                 </button>
+                <button id="ada-skip-btn">
+                  <p class="body-text">Skip Ahead</p>
+                </button>
               </div>
               <a href="#section-adaboost-2">
                 <p class="body-text">See Forest -></p>
@@ -260,13 +262,63 @@
       <div class="parallax-float-wrapper" id="section-adaboost-2">
         <div class="parallax-float-box">
           <div class="float-text">
-            <p>Hi!</p>
+            <div class="forest-body">
+              <div class="forest-left">
+                <h1 class="title-text">Forest</h1>
+                <div class="forest-container-wrapper" id="ada-forest-container">
+
+                </div>
+              </div>
+              <div class="forest-right">
+                <div class="forest-single body-text">
+                  <canvas id="forest-select-canvas"></canvas>
+                  <p id="forest-select-eval">Evaluation: ?</p>
+                  <button class="body-text" id="forest-select-next">Next Sample</button>
+
+                </div>
+                <div class="forest-stats body-text">
+                  <h1 class="title-text">Forest Status</h1>
+                  <p id="forest-stats-accuracy">Accuracy: ?</p>
+                  <p id="forest-stats-members">Members: ?</p>
+                </div>
+
+              </div>
+            </div>
+            <div class="forest-footer">
+              <a href="#section-adaboost-1">
+                <p class="body-text">&lt;- Train More</p>
+              </a>
+              <a href="#section-end">
+                <p class="body-text">Next -></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="parallax-box" id="section-end">
+        <div class="section ">
+          <h1 class="large-title">Credits</h1>
+        </div>
+        <div class="parallax-background">
+        </div>
+        <div class="parallax-content">
+          <div class="parallax-float-wrapper" id="section-end-1">
+            <div class="parallax-float-box">
+              <div class="float-text ">
+                <h2 class="title-text color-dark">Created with lots of ☕ by piman51277</h2>
+
+                <a href="#section-titlecard">
+                  <p class="body-text">To Top -></p>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-  </div>
 </body>
 
 </html>

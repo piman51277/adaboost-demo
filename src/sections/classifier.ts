@@ -132,7 +132,9 @@ function renderPartitioningWithScore(): void {
         evalStr += "<span class='set-1'>1</span>";
     }
     const compText = byID("partition-score") as HTMLParagraphElement;
-    compText.innerHTML = str + "<br>" + evalStr;
+    compText.innerHTML = str;
+    const evalText = byID("partition-eval") as HTMLParagraphElement;
+    evalText.innerHTML = evalStr;
 
 }
 
