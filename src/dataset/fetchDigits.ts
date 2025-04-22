@@ -55,7 +55,7 @@ export async function fetchDigits(): Promise<void> {
     const sets = [];
 
     for (const filename of filenames) {
-        const response = await axios.get(`/assets/${filename}`);
+        const response = await axios.get(`${filename}`);
         const data = response.data as DatasetEncoded[];
 
         const decodedData = data.map(decodeDataset);
