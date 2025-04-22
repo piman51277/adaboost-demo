@@ -1,43 +1,18 @@
+import { fetchDigits } from "./dataset/fetchDigits";
 import { CanvasResizerRelative } from "./util/CanvasResizer";
 import "./util/imgReady";
 import { ready } from "./util/ready";
 import { scrollPosition } from "./util/scrollPosition";
 
+import datasetMain from "./sections/dataset";
+import classifierMain from "./sections/classifier";
 
+ready(async () => {
 
-/**
- *
- */
-function renderBackground() {
-  const scrollRel = document.getElementById("bind-scroll") as HTMLElement;
-  const scroll = scrollPosition(scrollRel, true);
+  console.log("Starting to fetch digits dataset...");
+  await fetchDigits();
+  console.log("Digits dataset fetched successfully.");
 
-  //get the canvas
-  const canvas = document.getElementById("bind-cv") as HTMLCanvasElement;
-  const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-
-  let red_ch = 0;
-  if (scroll != null && scroll > 0) {
-    red_ch = Math.floor(255 * scroll);
-  }
-
-  ctx.fillStyle = `rgb(${red_ch}, 0, 0)`;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-
-
-ready(() => {
-  new CanvasResizerRelative(1.1, 1.1, "bind-cv");
-
-  window.addEventListener("scroll", () => {
-    renderBackground();
-  });
-
-  window.addEventListener("resize", () => {
-    renderBackground();
-  });
-
-  renderBackground();
-
-
+  datasetMain();
+  classifierMain();
 });

@@ -5,7 +5,7 @@
   <title>Article Title</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=K2D:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
   <script src="bundle.js"></script>
   <link rel="stylesheet" href="index.css" />
   <link rel="icon" href="/assets/favicon.png" />
@@ -15,51 +15,168 @@
 </head>
 
 <body>
-  <div class="experiment">
-    <div class="section font-k2d-medium">
-      <p>
-        Sample Text 0
-      </p>
+  <div class="size-viewport" id="section-titlecard">
+    <div class="color-semi-dark">
+      <h1 class="x-large-title">Ada<span class="color-dark">Boost</span></h1>
+      <h2 class="large-title">An Interactive Demo</h2>
     </div>
-    <div class="background-box max-viewport-fill">
-      <canvas id="bind-cv"></canvas>
+    <div class="navigator">
+      <a href="#section-dataset">
+        <p class="body-text">Next -></p>
+      </a>
     </div>
-    <div class="top-align" id="bind-scroll">
-      <div class="float-text-wrapper">
-        <div class="float-text-block">
-          <div class="float-text">1</div>
+  </div>
+
+  <div class="parallax-box" id="section-dataset">
+    <div class="section ">
+      <h1 class="large-title">Dataset</h1>
+    </div>
+    <div class="parallax-background">
+      <canvas id="dataset-background"></canvas>
+    </div>
+    <div class="parallax-content">
+      <div class="parallax-float-wrapper" id="section-dataset-1">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <h2 class="title-text">For this demo, we will be using the <span>MNIST dataset</span>, a collection of
+              <span>70,000 </span> handwritten digits.
+            </h2>
+            <a href="#section-dataset-2">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="float-text-wrapper">
-        <div class="float-text-block">
-          <div class="float-text">2</div>
+      <div class="parallax-float-wrapper" id="section-dataset-2">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <div class="float-split">
+              <canvas id="number-grid"></canvas>
+              <h2 class="title-text">Each <span>MNIST</span> image is a pre-processed to be exactly<span> 28x28</span>
+                pixels and
+                <span>grayscale</span>.
+              </h2>
+            </div>
+            <a href="#section-dataset-3">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="parallax-float-wrapper" id="section-dataset-3">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <h2 class="title-text"> To <span>simplify</span> this demo, we will focus only on classifying the digits
+              <span>0</span> and <span>1</span>.
+            </h2>
+            <a href="#section-classifier">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="parallax-box" id="section-classifier">
+    <div class="section ">
+      <h1 class="large-title">Classifier</h1>
+    </div>
+    <div class="parallax-background">
+    </div>
+    <div class="parallax-content">
+      <div class="parallax-float-wrapper" id="section-classifier-1">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <div class="float-split">
+              <img src="stump.png" alt="stump" class="stump-image" />
+              <h2 class="title-text">We will be using a <span>stump</span> as our <span>
+                  classifier</span>.
+                <br> A <span>stump</span> finds an outcome using <span>one condition</span>.
+              </h2>
+            </div>
+            <a href="#section-classifier-2">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="parallax-float-wrapper" id="section-classifier-2">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <div class="float-split">
+              <canvas id="fresh-image"></canvas>
+              <h2 class="title-text">There are many conditions we can use to classify images. For this demo, we will
+                use<span> partition pixel intensity</span>.
+              </h2>
+            </div><a href="#section-classifier-3">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="parallax-float-wrapper" id="section-classifier-3">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <div class="float-split">
+              <canvas id="partitioned-image"></canvas>
+              <h2 class="title-text">Our stumps will first <span>partition</span> each image into <span
+                  class="set-0">two</span> <span class="set-1">sets</span>.
+              </h2>
+            </div>
+            <a href="#section-classifier-4">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="parallax-float-wrapper" id="section-classifier-4">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <div class="float-split">
+              <div class="split-left">
+                <canvas id="partitioned-image2"></canvas>
+                <p class="body-text" id="partition-score"></p>
+                <p class="body-text" id="partition-eval"></p>
+                <button id="new-partition-btn">
+                  <p class="body-text">Remake Sets</p>
+                </button>
+
+              </div>
+              <h2 class="title-text">The set with the <span>highest average pixel intensity</span> will determine the
+                output.
+                <br>(<span class="set-0">Red -> 0</span>, <span class="set-1">Blue -> 1</span>)
+              </h2>
+            </div>
+            <a href="#section-classifier-5">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="parallax-float-wrapper" id="section-classifier-5">
+        <div class="parallax-float-box">
+          <div class="float-text">
+            <div class="float-split">
+              <div class="split-left">
+                <canvas id="partitioned-image-auto"></canvas>
+                <p class="body-text" id="partition-progress-auto"></p>
+                <p class="body-text" id="partition-score-auto"></p>
+
+              </div>
+              <h2 class="title-text">We will "train" stumps by trying 10 partitions and selecting the one
+                with the <span>most significant result</span>.
+              </h2>
+            </div>
+            <a href="#section-classifier-6">
+              <p class="body-text">Next -></p>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="experiment">
-    <div class="section font-k2d-medium">
-      <p>
-        Sample Text 0
-      </p>
-    </div>
-    <div class="background-box max-viewport-fill">
-    </div>
-    <div class="top-align">
-      <div class="float-text-wrapper">
-        <div class="float-text-block">
-          <div class="float-text">1</div>
-        </div>
-      </div>
-      <div class="float-text-wrapper">
-        <div class="float-text-block">
-          <div class="float-text">2</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 </body>
 
 </html>

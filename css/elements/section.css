@@ -1,9 +1,9 @@
 .section {
   width: 100vw; /* This sets an ideal width */
   max-width: 100%; /* This stops horizontal scroll */
-  height: 50px;
-  background: white;
-  color: black;
+  height: 80px;
+  background: var(--Light);
+  color: var(--Dark);
   display: flex;
   justify-content: left;
   padding: 0px 20px;
