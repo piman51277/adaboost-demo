@@ -15,280 +15,67 @@
 </head>
 
 <body>
-  <div class="size-viewport" id="section-titlecard">
-    <div class="color-semi-dark">
-      <h1 class="x-large-title">Ada<span class="color-dark">Boost</span></h1>
-      <h2 class="large-title">An Interactive Demo</h2>
-    </div>
-    <div class="navigator">
-      <a href="#section-dataset">
-        <p class="body-text">Next -></p>
-      </a>
+  <div class="size-viewport loading-barrier" id="loading-screen">
+    <div>
+      <h1 class="large-title">Loading Assets...</h1>
     </div>
   </div>
-
-  <div class="parallax-box" id="section-dataset">
-    <div class="section ">
-      <h1 class="large-title">Dataset</h1>
-    </div>
-    <div class="parallax-background">
-      <canvas id="dataset-background"></canvas>
-    </div>
-    <div class="parallax-content">
-      <div class="parallax-float-wrapper" id="section-dataset-1">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <h2 class="title-text">For this demo, we will be using the <span>MNIST dataset</span>, a collection of
-              <span>70,000 </span> handwritten digits.
-            </h2>
-            <a href="#section-dataset-2">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
+  <div id="main-content">
+    <div class="size-viewport" id="section-titlecard">
+      <div class="color-semi-dark">
+        <h1 class="x-large-title">Ada<span class="color-dark">Boost</span></h1>
+        <h2 class="large-title">An Interactive Demo</h2>
       </div>
-      <div class="parallax-float-wrapper" id="section-dataset-2">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="float-split">
-              <canvas id="number-grid"></canvas>
-              <h2 class="title-text">Each <span>MNIST</span> image is a pre-processed to be exactly<span> 28x28</span>
-                pixels and
-                <span>grayscale</span>.
+      <div class="navigator">
+        <a href="#section-dataset">
+          <p class="body-text">Next -></p>
+        </a>
+      </div>
+    </div>
+
+    <div class="parallax-box" id="section-dataset">
+      <div class="section ">
+        <h1 class="large-title">Dataset</h1>
+      </div>
+      <div class="parallax-background">
+        <canvas id="dataset-background"></canvas>
+      </div>
+      <div class="parallax-content">
+        <div class="parallax-float-wrapper" id="section-dataset-1">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <h2 class="title-text">For this demo, we will be using the <span>MNIST dataset</span>, a collection of
+                <span>70,000 </span> handwritten digits.
               </h2>
-            </div>
-            <a href="#section-dataset-3">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="parallax-float-wrapper" id="section-dataset-3">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <h2 class="title-text"> To <span>simplify</span> this demo, we will focus only on classifying the digits
-              <span>0</span> and <span>1</span>.
-            </h2>
-            <a href="#section-classifier">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="parallax-box" id="section-classifier">
-    <div class="section ">
-      <h1 class="large-title">Classifier</h1>
-    </div>
-    <div class="parallax-background">
-      <canvas id="classifier-background"></canvas>
-    </div>
-    <div class="parallax-content">
-      <div class="parallax-float-wrapper" id="section-classifier-1">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="float-split">
-              <img src="stump.png" alt="stump" class="stump-image" />
-              <h2 class="title-text">We will be using a <span>stump</span> as our <span>
-                  classifier</span>.
-                <br> A <span>stump</span> finds an outcome using <span>one condition</span>.
-              </h2>
-            </div>
-            <a href="#section-classifier-2">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="parallax-float-wrapper" id="section-classifier-2">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="float-split">
-              <canvas id="fresh-image"></canvas>
-              <h2 class="title-text">There are many conditions we can use to classify images. For this demo, we will
-                use<span> partition pixel intensity</span>.
-              </h2>
-            </div><a href="#section-classifier-3">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="parallax-float-wrapper" id="section-classifier-3">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="float-split">
-              <canvas id="partitioned-image"></canvas>
-              <h2 class="title-text">Our stumps will first <span>partition</span> each image into <span
-                  class="set-0">two</span> <span class="set-1">sets</span>.
-              </h2>
-            </div>
-            <a href="#section-classifier-4">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="parallax-float-wrapper" id="section-classifier-4">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="float-split">
-              <div class="split-left">
-                <canvas id="partitioned-image2"></canvas>
-                <p class="body-text" id="partition-score"></p>
-                <p class="body-text" id="partition-eval"></p>
-                <button id="new-partition-btn">
-                  <p class="body-text">Remake Sets</p>
-                </button>
-
-              </div>
-              <h2 class="title-text">The set with the <span>highest average pixel intensity</span> will determine the
-                output.
-              </h2>
-            </div>
-            <a href="#section-classifier-5">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="parallax-float-wrapper" id="section-classifier-5">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="float-split">
-              <div class="split-left">
-                <canvas id="partitioned-image-auto"></canvas>
-                <p class="body-text" id="partition-progress-auto"></p>
-                <p class="body-text" id="partition-score-auto"></p>
-
-              </div>
-              <h2 class="title-text">We will "train" stumps by trying 10 partitions and selecting the one
-                with the <span>most significant result</span>.
-              </h2>
-            </div>
-            <a href="#section-adaboost">
-              <p class="body-text">Next -></p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="parallax-box" id="section-adaboost">
-    <div class="section ">
-      <h1 class="large-title">AdaBoost</h1>
-    </div>
-    <div class="parallax-background">
-      <canvas id="adaboost-background"></canvas>
-    </div>
-    <div class="parallax-content">
-      <div class="parallax-float-wrapper" id="section-adaboost-1">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="ada-steps body-text">
-              <span id="ada-step-0">Train Classifier</span>
-              <span>-></span>
-              <span id="ada-step-1">Test Classifier</span>
-              <span>-></span>
-              <span id="ada-step-2">Get Importance</span>
-              <span>-></span>
-              <span id="ada-step-3">Update Distribution</span>
-              <span>-></span>
-              <span id="ada-step-4">Add to Forest</span>
-            </div>
-            <div class="ada-main">
-              <div class="ada-samples-viewer">
-                <div class="ada-samples-box">
-                  {%for i in [0,1,2,3,4,5] %}
-                  <div class="ada-sample" id="ada-sample-{{i}}">
-                    <canvas id="ada-sample-{{i}}-canvas"></canvas>
-                    <div class="ada-sample-text">
-                      <p class="body-text" id="ada-sample-{{i}}-id">Sample XXXX</p>
-                      <p class="body-text" id="ada-sample-{{i}}-correct">?????</p>
-                      <p class="body-text" id="ada-sample-{{i}}-weight">W: 0.1234</p>
-                    </div>
-                  </div>
-                  {% endfor %}
-                </div>
-
-                <div class="ada-samples-footer">
-                  <button id="ada-sample-pagedwn-btn">
-                    <p class="body-text">&lt;-</p>
-                  </button>
-                  <p class="body-text" id="ada-sample-page">Page </p>
-                  <button id="ada-sample-pageup-btn">
-                    <p class="body-text">-></p>
-                  </button>
-                </div>
-              </div>
-              <div class="ada-main-right">
-                <canvas id="ada-current-classifier"></canvas>
-                <div id="ada-current-stats">
-                  <p class="body-text" id="ada-stats-classifier-num"> Classifier #0</p>
-                  <p class="body-text" id="ada-stats-training"> Training: Not Started</p>
-                  <p class="body-text" id="ada-stats-testing"> Testing: Not Started</p>
-                  <p class="body-text" id="ada-stats-correct"> Correct: ?</p>
-                  <p class="body-text" id="ada-stats-incorrect"> Incorrect: ?</p>
-                  <p class="body-text" id="ada-stats-accuracy"> Accuracy: ?</p>
-                  <p class="body-text" id="ada-stats-importance"> Importance: ?</p>
-
-                </div>
-              </div>
-
-            </div>
-            <div class="ada-footer">
-              <div>
-                <button id="ada-reset-btn">
-                  <p class="body-text">Reset</p>
-                </button>
-                <button id="ada-skip-btn">
-                  <p class="body-text">Skip Ahead</p>
-                </button>
-                <button id="ada-continue-btn">
-                  <p class="body-text">Next Step</p>
-                </button>
-              </div>
-              <a href="#section-adaboost-2">
-                <p class="body-text">See Forest -></p>
+              <a href="#section-dataset-2">
+                <p class="body-text">Next -></p>
               </a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="parallax-float-wrapper" id="section-adaboost-2">
-        <div class="parallax-float-box">
-          <div class="float-text">
-            <div class="forest-body">
-              <div class="forest-left">
-                <h1 class="title-text">Forest</h1>
-                <div class="forest-container-wrapper" id="ada-forest-container">
-
-                </div>
+        <div class="parallax-float-wrapper" id="section-dataset-2">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="float-split">
+                <canvas id="number-grid"></canvas>
+                <h2 class="title-text">Each <span>MNIST</span> image is a pre-processed to be exactly<span> 28x28</span>
+                  pixels and
+                  <span>grayscale</span>.
+                </h2>
               </div>
-              <div class="forest-right">
-                <div class="forest-single body-text">
-                  <canvas id="forest-select-canvas"></canvas>
-                  <p id="forest-select-eval">Evaluation: ?</p>
-                  <button class="body-text" id="forest-select-next">Next Sample</button>
-
-                </div>
-                <div class="forest-stats body-text">
-                  <h1 class="title-text">Forest Status</h1>
-                  <p id="forest-stats-accuracy">Accuracy: ?</p>
-                  <p id="forest-stats-members">Members: ?</p>
-                </div>
-
-              </div>
-            </div>
-            <div class="forest-footer">
-              <a href="#section-adaboost-1">
-                <p class="body-text">&lt;- Train More</p>
+              <a href="#section-dataset-3">
+                <p class="body-text">Next -></p>
               </a>
-              <a href="#section-end">
+            </div>
+          </div>
+        </div>
+        <div class="parallax-float-wrapper" id="section-dataset-3">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <h2 class="title-text"> To <span>simplify</span> this demo, we will focus only on classifying the digits
+                <span>0</span> and <span>1</span>.
+              </h2>
+              <a href="#section-classifier">
                 <p class="body-text">Next -></p>
               </a>
             </div>
@@ -296,29 +83,250 @@
         </div>
       </div>
 
+    </div>
 
-
-      <div class="parallax-box" id="section-end">
-        <div class="section ">
-          <h1 class="large-title">Credits</h1>
+    <div class="parallax-box" id="section-classifier">
+      <div class="section ">
+        <h1 class="large-title">Classifier</h1>
+      </div>
+      <div class="parallax-background">
+        <canvas id="classifier-background"></canvas>
+      </div>
+      <div class="parallax-content">
+        <div class="parallax-float-wrapper" id="section-classifier-1">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="float-split">
+                <img src="stump.png" alt="stump" class="stump-image" />
+                <h2 class="title-text">We will be using a <span>stump</span> as our <span>
+                    classifier</span>.
+                  <br> A <span>stump</span> finds an outcome using <span>one condition</span>.
+                </h2>
+              </div>
+              <a href="#section-classifier-2">
+                <p class="body-text">Next -></p>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="parallax-background">
+        <div class="parallax-float-wrapper" id="section-classifier-2">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="float-split">
+                <canvas id="fresh-image"></canvas>
+                <h2 class="title-text">There are many conditions we can use to classify images. For this demo, we will
+                  use<span> partition pixel intensity</span>.
+                </h2>
+              </div><a href="#section-classifier-3">
+                <p class="body-text">Next -></p>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="parallax-content">
-          <div class="parallax-float-wrapper" id="section-end-1">
-            <div class="parallax-float-box">
-              <div class="float-text ">
-                <h2 class="title-text color-dark">Created with lots of ☕ by piman51277</h2>
+        <div class="parallax-float-wrapper" id="section-classifier-3">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="float-split">
+                <canvas id="partitioned-image"></canvas>
+                <h2 class="title-text">Our stumps will first <span>partition</span> each image into <span
+                    class="set-0">two</span> <span class="set-1">sets</span>.
+                </h2>
+              </div>
+              <a href="#section-classifier-4">
+                <p class="body-text">Next -></p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="parallax-float-wrapper" id="section-classifier-4">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="float-split">
+                <div class="split-left">
+                  <canvas id="partitioned-image2"></canvas>
+                  <p class="body-text" id="partition-score"></p>
+                  <p class="body-text" id="partition-eval"></p>
+                  <button id="new-partition-btn">
+                    <p class="body-text">Remake Sets</p>
+                  </button>
 
-                <a href="#section-titlecard">
-                  <p class="body-text">To Top -></p>
+                </div>
+                <h2 class="title-text">The set with the <span>highest average pixel intensity</span> will determine the
+                  output.
+                </h2>
+              </div>
+              <a href="#section-classifier-5">
+                <p class="body-text">Next -></p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="parallax-float-wrapper" id="section-classifier-5">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="float-split">
+                <div class="split-left">
+                  <canvas id="partitioned-image-auto"></canvas>
+                  <p class="body-text" id="partition-progress-auto"></p>
+                  <p class="body-text" id="partition-score-auto"></p>
+
+                </div>
+                <h2 class="title-text">We will "train" stumps by trying 10 partitions and selecting the one
+                  with the <span>most significant result</span>.
+                </h2>
+              </div>
+              <a href="#section-adaboost">
+                <p class="body-text">Next -></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parallax-box" id="section-adaboost">
+      <div class="section ">
+        <h1 class="large-title">AdaBoost</h1>
+      </div>
+      <div class="parallax-background">
+        <canvas id="adaboost-background"></canvas>
+      </div>
+      <div class="parallax-content">
+        <div class="parallax-float-wrapper" id="section-adaboost-1">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="ada-steps body-text">
+                <span id="ada-step-0">Train Classifier</span>
+                <span>-></span>
+                <span id="ada-step-1">Test Classifier</span>
+                <span>-></span>
+                <span id="ada-step-2">Get Importance</span>
+                <span>-></span>
+                <span id="ada-step-3">Update Distribution</span>
+                <span>-></span>
+                <span id="ada-step-4">Add to Forest</span>
+              </div>
+              <div class="ada-main">
+                <div class="ada-samples-viewer">
+                  <div class="ada-samples-box">
+                    {%for i in [0,1,2,3,4,5] %}
+                    <div class="ada-sample" id="ada-sample-{{i}}">
+                      <canvas id="ada-sample-{{i}}-canvas"></canvas>
+                      <div class="ada-sample-text">
+                        <p class="body-text" id="ada-sample-{{i}}-id">Sample XXXX</p>
+                        <p class="body-text" id="ada-sample-{{i}}-correct">?????</p>
+                        <p class="body-text" id="ada-sample-{{i}}-weight">W: 0.1234</p>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+
+                  <div class="ada-samples-footer">
+                    <button id="ada-sample-pagedwn-btn">
+                      <p class="body-text">&lt;-</p>
+                    </button>
+                    <p class="body-text" id="ada-sample-page">Page </p>
+                    <button id="ada-sample-pageup-btn">
+                      <p class="body-text">-></p>
+                    </button>
+                  </div>
+                </div>
+                <div class="ada-main-right">
+                  <canvas id="ada-current-classifier"></canvas>
+                  <div id="ada-current-stats">
+                    <p class="body-text" id="ada-stats-classifier-num"> Classifier #0</p>
+                    <p class="body-text" id="ada-stats-training"> Training: Not Started</p>
+                    <p class="body-text" id="ada-stats-testing"> Testing: Not Started</p>
+                    <p class="body-text" id="ada-stats-correct"> Correct: ?</p>
+                    <p class="body-text" id="ada-stats-incorrect"> Incorrect: ?</p>
+                    <p class="body-text" id="ada-stats-accuracy"> Accuracy: ?</p>
+                    <p class="body-text" id="ada-stats-importance"> Importance: ?</p>
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="ada-footer">
+                <div>
+                  <button id="ada-reset-btn">
+                    <p class="body-text">Reset</p>
+                  </button>
+                  <button id="ada-skip-btn">
+                    <p class="body-text">Skip Ahead</p>
+                  </button>
+                  <button id="ada-continue-btn">
+                    <p class="body-text">Next Step</p>
+                  </button>
+                </div>
+                <a href="#section-adaboost-2">
+                  <p class="body-text">See Forest -></p>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="parallax-float-wrapper" id="section-adaboost-2">
+          <div class="parallax-float-box">
+            <div class="float-text">
+              <div class="forest-body">
+                <div class="forest-left">
+                  <h1 class="title-text">Forest</h1>
+                  <div class="forest-container-wrapper" id="ada-forest-container">
+
+                  </div>
+                </div>
+                <div class="forest-right">
+                  <div class="forest-single body-text">
+                    <canvas id="forest-select-canvas"></canvas>
+                    <p id="forest-select-eval">Evaluation: ?</p>
+                    <button class="body-text" id="forest-select-next">Next Sample</button>
+
+                  </div>
+                  <div class="forest-stats body-text">
+                    <h1 class="title-text">Forest Status</h1>
+                    <p id="forest-stats-accuracy">Accuracy: ?</p>
+                    <p id="forest-stats-members">Members: ?</p>
+                  </div>
+
+                </div>
+              </div>
+              <div class="forest-footer">
+                <a href="#section-adaboost-1">
+                  <p class="body-text">&lt;- Train More</p>
+                </a>
+                <a href="#section-end">
+                  <p class="body-text">Next -></p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="parallax-box" id="section-end">
+          <div class="section ">
+            <h1 class="large-title">Credits</h1>
+          </div>
+          <div class="parallax-background">
+          </div>
+          <div class="parallax-content">
+            <div class="parallax-float-wrapper" id="section-end-1">
+              <div class="parallax-float-box">
+                <div class="float-text ">
+                  <h2 class="title-text color-dark">Created with lots of ☕ by piman51277</h2>
+
+                  <a href="#section-titlecard">
+                    <p class="body-text">To Top -></p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </body>
 
 </html>
