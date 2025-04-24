@@ -58,6 +58,7 @@ parallax-background {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
   gap: 20px;
 
   img,
@@ -77,4 +78,20 @@ parallax-background {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Mobile overrides */
+@media screen and (max-width: 768px) {
+  .float-split {
+    flex-direction: column;
+
+    .split-left {
+      max-width: 90%;
+    }
+  }
+
+  .float-text a {
+    padding: 5px;
+    width: 100px;
+  }
 }

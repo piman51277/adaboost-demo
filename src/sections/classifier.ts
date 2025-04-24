@@ -181,7 +181,7 @@ function renderAutomated(): void {
     }
 
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 50; i++) {
         entry = datasets.test[progress];
         const evaluation = automatedClassifier.evaluate(entry);
         if (evaluation === entry.label) {
@@ -194,10 +194,10 @@ function renderAutomated(): void {
     const compText = byID("partition-score-auto") as HTMLParagraphElement;
     compText.innerHTML = `Accuracy: ${accuracy}%`;
     const progressText = byID("partition-progress-auto") as HTMLParagraphElement;
-    progressText.innerHTML = `Progress: ${progress} / ${datasets.test.length}`;
+    progressText.innerHTML = `Progress: ${progress} / ${200}`;
 
 
-    if (progress >= datasets.test.length) {
+    if (progress >= 200) {
         progress = 0;
         accuracySum = 0;
         automatedClassifier = new Classifier();
@@ -267,15 +267,6 @@ export default (): void => {
     renderFresh();
     renderBackground();
 
-    //button binds
-    const remakeSetsBtn = byID("new-partition-btn") as HTMLButtonElement;
-    remakeSetsBtn.addEventListener("click", () => {
-        generateClassifierGroups();
-        renderPartitioningWithScore();
-        renderPartitioning();
-        renderBackground();
-    });
-
 
     renderAutomated();
     setInterval(() => {
@@ -288,6 +279,16 @@ export default (): void => {
         if (viewAmount != null) {
             renderAutomated();
         }
-    }, 500);
+
+        //check if the section itself is in view
+        const section = byID("section-classifier") as HTMLDivElement;
+        const sectionViewAmount = scrollPosition(section, true);
+        if (sectionViewAmount != null) {
+            generateClassifierGroups();
+            renderPartitioningWithScore();
+            renderPartitioning();
+            renderBackground();
+        }
+    }, 1000);
 };
 

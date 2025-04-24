@@ -6,6 +6,7 @@
   --Red: #f0052c;
   --Blue: #0b88d5;
   --Green: #3f8d3f;
+  --mobile-width: 768px;
 }
 
 .color-light {
@@ -25,19 +26,19 @@
 .x-large-title {
   /* X-Large Title */
   font-family: Inter;
-  font-size: 128px;
   font-style: normal;
   font-weight: 500;
-  line-height: 192px; /* 150% */
+  line-height: 1.5em; /* 150% */
+  font-size: 128px;
 }
 
 .large-title {
   /* Large Title */
   font-family: Inter;
-  font-size: 64px;
   font-style: normal;
   font-weight: 500;
-  line-height: 96px; /* 150% */
+  line-height: 1.5em; /* 150% */
+  font-size: 64px;
 }
 
 .title-text {
@@ -46,14 +47,31 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
-  line-height: 60px; /* 150% */
+  line-height: 1.5em; /* 150% */
+  font-size: 40px;
 }
 
 .body-text {
   /* Body */
   font-family: Inter;
-  font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 36px; /* 150% */
+  line-height: 1.5em; /* 150% */
+  font-size: 24px;
+}
+
+/* Mobile overrides */
+@media screen and (max-width: 768px) {
+  .x-large-title {
+    font-size: 64px;
+  }
+  .large-title {
+    font-size: 32px;
+  }
+  .title-text {
+    font-size: 24px;
+  }
+  .body-text {
+    font-size: 16px;
+  }
 }

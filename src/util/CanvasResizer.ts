@@ -30,6 +30,7 @@ export class CanvasResizer {
     //compute the new height
     const height = width / this.aspectRatio;
     this.canvas.style.height = `${height}px`;
+    this.canvas.style.width = `${width}px`;
   }
 }
 

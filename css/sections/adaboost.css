@@ -11,12 +11,6 @@
   }
 }
 
-.sample-box {
-  width: 150px;
-  height: 150px;
-  background-color: var(--Black);
-}
-
 .ada-steps {
   display: flex;
   flex-direction: row;
@@ -26,16 +20,17 @@
 
   color: var(--Semi-Dark);
 
-  .current-step {
-    color: var(--Dark);
-    border: 2px solid var(--Semi-Dark);
-    border-radius: 5px;
-  }
-
   span {
     height: 36px;
     display: inline-block;
     white-space: nowrap;
+  }
+
+  .current-step {
+    color: var(--Dark);
+    border: 2px solid var(--Semi-Dark);
+    border-radius: 5px;
+    height: 40px;
   }
 }
 
@@ -108,20 +103,15 @@
 
   .ada-samples-footer {
     height: 50px;
+    padding: 5px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     button {
       width: 50px;
-    }
-
-    #ada-sample-pagedwn-btn {
-      border-radius: 0px 10px 0px 0px;
-    }
-    #ada-sample-pageup-btn {
-      border-radius: 10px 0px 0px 0px;
     }
   }
 }
@@ -166,6 +156,8 @@
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+    justify-content: center;
+    align-content: center;
   }
 
   button:hover {
@@ -227,6 +219,7 @@
     overflow-x: hidden;
   }
 }
+
 .forest-entry {
   display: flex;
   flex-direction: row;
@@ -262,6 +255,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 280px;
 }
 
 .forest-single {
@@ -313,5 +307,137 @@
 
   button:hover {
     background-color: var(--Dark);
+  }
+}
+
+#section-adaboost-0 {
+  display: none;
+}
+
+/* Mobile overrides */
+@media screen and (max-width: 1500px) {
+  .ada-samples-viewer {
+    width: 300px;
+    min-width: 300px;
+    .ada-samples-box {
+      grid-template-columns: auto;
+      .ada-sample {
+        canvas {
+          display: none;
+        }
+
+        .ada-sample-text {
+          flex-direction: row;
+          gap: 10px;
+        }
+      }
+    }
+
+    .body-text {
+      font-size: 16px;
+    }
+  }
+
+  .ada-steps {
+    span {
+      font-size: 16px;
+    }
+
+    .current-step {
+      border: none;
+      font-size: 24px;
+    }
+  }
+
+  .ada-footer {
+    a,
+    button {
+      padding: 5px;
+      width: 120px;
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .forest-left {
+    .forest-container-wrapper {
+      grid-template-columns: auto auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ada-main {
+    justify-content: center;
+  }
+
+  .ada-samples-viewer {
+    display: none;
+  }
+
+  .ada-steps {
+    span {
+      display: none;
+    }
+
+    .current-step {
+      display: inline-block;
+      font-size: 24px;
+    }
+  }
+
+  #section-adaboost-0 {
+    display: flex;
+  }
+
+  .forest-left {
+    .forest-container-wrapper {
+      grid-template-columns: auto;
+    }
+  }
+
+  .forest-entry {
+    canvas {
+      display: none;
+    }
+  }
+
+  .forest-elem-stats {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #section-adaboost-1 {
+    .float-text {
+      height: 400px;
+    }
+  }
+
+  .ada-main-right {
+    flex-grow: 0;
+    canvas {
+      display: none;
+    }
+  }
+
+  .ada-control-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .forest-left {
+    display: none;
+  }
+
+  .forest-footer {
+    a,
+    button {
+      width: 150px;
+    }
   }
 }
